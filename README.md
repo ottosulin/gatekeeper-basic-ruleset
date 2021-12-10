@@ -1,14 +1,14 @@
 # Gatekeeper basic ruleset
 
-My basic Gatekeeper ruleset and example / test pods. Mostly copypaste from gatekeeper-library repo.
+My basic Gatekeeper ruleset and example pods. Mostly copypaste from gatekeeper-library repo.
 
-See install.sh for instructions
+Check install.sh for instructions.
 
 ## About the ruleset
 
-* kube-system is very forcibly exluded to prevent any mishaps
+* kube-system is very forcibly excluded to prevent any mishaps
 * gatekeeper-system namespace is also excluded in the 1_config.yaml
-* future development: investigate kube-system and gatekeeper-system exclusion needs to create more finegrained exclusions
+* future development: investigate kube-system and gatekeeper-system exclusion needs to create more fine-grained exclusions
 
 ## Customization
 
