@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-allowed
+  labels:
+    app: nginx-allowed
+spec:
+  automountServiceAccountToken: false
+  hostPID: false
+  hostIPC: false
+  securityContext:
+    runAsUser: 1001
+    fsGroup: 2000
+    runAsGroup: 1001
+    supplementalGroups: [5678]
+  containers:
+  - name: nginx-allowed
+    image: nginx
+    resources:
+      limits:
+        cpu: "100m"
+        memory: "500Mi"
+    securityContext:
+      privileged: false
+      runAsUser: 1001
+      runAsGroup: 1001
+      readOnlyRootFilesystem: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+    volumeMounts:
+    - mountPath: /demo
+      name: demo-volume
+      readOnly: true
+  volumes:
+  - name: demo-volume
+    emptyDir: {}
